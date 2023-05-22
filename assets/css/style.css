@@ -22,14 +22,13 @@ body{
 
 #intro-part li{
     list-style: none;
+    padding: 0px 30px;
 }
 
 .home, .skill, .contact, .project, .about{
     text-decoration: none;
     margin-top: 7px;  
-    margin-left: 30px;
     font-size: 20px;
-    padding: 8px;
     border-radius: 7px;
     color: #fff;
     
@@ -113,30 +112,28 @@ body{
         border: #fff 1mm dashed;
       }
       
+      .image-card:hover{
+        animation: bgRotate 0.2s ease-in-out 2s 1 normal;
+      }
 
   @keyframes bgRotate{
     0%{
-        transform: rotate(0deg);
+      transform: rotate(-15deg);
     }
+    25%{
+        transform: rotate(-15deg);
+    }
+    75%{
+      transform: rotate(-15deg);
+  }
     100%{
-        transform: rotate(360deg);
+        transform: rotate(15deg);
     }
   } 
-  
-@keyframes imgRotate {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(-360deg);
-    }
-  }
 
   #about-box{
     background: #a8a8a8;
     color: white;
-    border-radius: 12px;
     padding: 10px 10px 10px 10px;
     box-shadow: 3px #353535;
     z-index: 0;
@@ -144,9 +141,7 @@ body{
     justify-content: center;    
     font-family: 'Playfair Display', serif;
   }
-  #about-part {
-    margin:10px;
-  }
+  
 
   .timeline {    
     display: flex;
@@ -264,6 +259,11 @@ body{
     right: -45px;
   }
 
+  #skills-part{
+    margin-top: 10px;
+    padding: 10px 0px 20px 20px;
+  }
+
   #skill-box {
     display: flex;
     flex-direction: row;
@@ -272,7 +272,9 @@ body{
     justify-content: center;
     row-gap: 30px;
     column-gap: 30px;
-    color: white;
+    color: white;    
+    margin-top: 30px;
+    font-family: 'Playfair Display', serif;
   }
   progress {
     height: 20px;
@@ -290,9 +292,110 @@ body{
   }
 
   .skills{
-    padding: 25px;
+    padding: 10px 10px;
     background-color: #353535;
     border-radius: 0px;
-    color:rgb(249, 64, 64)
+    color:rgb(249, 64, 64);
+    font-family: 'Playfair Display', serif;
   }
-    
+  
+  .about-card {
+    justify-content: center;
+    align-items: center;
+    display: flex;    
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    max-width: 100%;
+    font-size: 16px;
+  } 
+  /* setting padding based on even or odd */
+  .about-card:nth-child(odd) {
+    padding: 30px 0 30px 30px;
+  }
+  .about-card:nth-child(even) {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 30px 30px 0;
+  }
+  /* Global ::before */
+  .about-card::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    border: solid rgb(249, 64, 64);
+  }
+  
+  /* Setting the border of top, bottom, left */
+  .about-card:nth-child(odd)::before {
+    left: 0px;
+    top: -4.5px;
+    bottom: -4.5px;
+    border-width: 5px 0 5px 5px;
+    border-radius: 50px 0 0 50px;
+  }
+  
+  /* Setting the border of top, bottom, right */
+  .about-card:nth-child(even)::before {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-width: 5px 5px 5px 0;
+    border-radius: 0 50px 50px 0;
+  }
+  
+  /* Removing the border if it is the first card */
+  .about-card:first-child::before {
+    border-top: 0;
+    border-top-left-radius: 0;
+  }
+  
+  /* Removing the border if it is the last card  and it's odd */
+  .about-card:last-child:nth-child(odd)::before {
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  /* Removing the border if it is the last card  and it's even */
+  .about-card:last-child:nth-child(even)::before {
+    border-bottom: 0;
+    border-bottom-right-radius: 0;
+  }
+  #project-part{
+    color: black;
+    font-family: 'Playfair Display', serif;
+    border: 0.5mm dashed #353535;    
+    align-items: center;
+    justify-content: center; padding:20px; 
+  }
+
+  .project-details{      
+    align-items: center;
+    justify-content: center;   
+    display: block;
+    padding: 0px 10px 10px 0px;
+  }
+
+  .about-card div{
+    display: block;
+    background-color: #f9cbcb;
+  }
+
+  .git-btn{
+    padding: 7px 10px;
+    font-family: 'Playfair Display', serif;    
+    background: #000000;
+    color:#ff6565;
+    border: 0.5mm #343434 solid;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .git-btn:hover{  
+    background: #ff6565;
+    color:#303030;
+  }
+
+  .skills span {
+    font-size: 24px;
+  }
